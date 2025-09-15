@@ -1,11 +1,16 @@
 import sqlite3
+import os
+from dotenv import load_dotenv
 import pandas as pd
 import plotly.express as px
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
 
-db_path = 'data/processed/box_office.db'
+load_dotenv()
+PROCESSED_DB_PATH = os.getenv('PROCESSED_DB_PATH')
+
+db_path = PROCESSED_DB_PATH
 conn = sqlite3.connect(db_path)
 
 df_movie = pd.read_sql_query("SELECT * FROM DimMovie", conn)

@@ -1,8 +1,10 @@
 from sqlalchemy import create_engine
 import logging
 import os
+from dotenv import load_dotenv
 
 # Getting env
+load_dotenv()
 PROCESSED_DB_PATH = os.getenv('PROCESSED_DB_PATH')
 
 # Creating DB Engine
